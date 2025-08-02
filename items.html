@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let itemsData = null;
+      fetch("https://api.opendota.com/api/constants/items")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          return data["aeon_disk"];
+        })
+        .then((aeonDisk) =>
+          console.log(aeonDisk.dname, aeonDisk.components, aeonDisk.img)
+        )
+        .catch((error) => console.log("ERROR"));
+    </script>
+  </body>
+</html>
